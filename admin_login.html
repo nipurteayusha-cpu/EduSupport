@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login - EduSupport</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        .login-section {
+            min-height: 75vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .login-card {
+            background: white;
+            width: 100%;
+            max-width: 430px;
+            padding: 40px;
+            border-radius: 14px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.10);
+        }
+
+        .login-card h1 {
+            text-align: center;
+            color: #173b6c;
+            margin-bottom: 10px;
+        }
+
+        .login-card .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .login-card label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .login-card input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .login-card input:focus {
+            outline: none;
+            border-color: #173b6c;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 13px;
+            background: #173b6c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            background: #0f2c52;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 22px;
+            color: #173b6c;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .admin-badge {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">EduSupport</div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/login">User Login</a>
+        </div>
+
+    </nav>
+
+
+    <section class="login-section">
+
+        <div class="login-card">
+
+            <div class="admin-badge">🔐</div>
+
+            <h1>Admin Login</h1>
+
+            <p class="subtitle">
+                Sign in to manage EduSupport
+            </p>
+
+            <form method="POST">
+
+                <label for="username">Username</label>
+
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Enter admin username"
+                    required
+                >
+
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter admin password"
+                    required
+                >
+
+                <button type="submit" class="login-btn">
+                    Login to Dashboard
+                </button>
+
+            </form>
+
+            <a href="/" class="back-link">
+                ← Back to Home
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <footer class="footer">
+
+        <p>
+            © 2026 EduSupport | Education Should Reach Everyone
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

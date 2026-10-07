@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Supporter Dashboard - EduSupport</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        .supporter-section {
+            padding: 50px 8%;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .page-title h1 {
+            color: #173b6c;
+            margin-bottom: 10px;
+        }
+
+        .request-card {
+            background: white;
+            max-width: 850px;
+            margin: 0 auto 25px;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-left: 5px solid #173b6c;
+        }
+
+        .request-card h3 {
+            color: #173b6c;
+            margin-bottom: 18px;
+        }
+
+        .request-card p {
+            margin: 10px 0;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 7px 14px;
+            border-radius: 20px;
+            background: #fff3cd;
+            color: #856404;
+            font-weight: bold;
+        }
+
+        .support-btn {
+            margin-top: 15px;
+            padding: 12px 22px;
+            border: none;
+            border-radius: 6px;
+            background: #173b6c;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .support-btn:hover {
+            background: #0f2c52;
+        }
+
+        .empty-box {
+            background: white;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 40px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .back-btn {
+            display: block;
+            width: fit-content;
+            margin: 30px auto 0;
+            padding: 12px 22px;
+            background: #173b6c;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .back-btn:hover {
+            background: #0f2c52;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <div class="logo">
+            EduSupport
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/student">Student</a>
+            <a href="/login">Logout</a>
+			<a href="/logout">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Supporter Dashboard -->
+    <section class="supporter-section">
+
+        <div class="page-title">
+
+            <h1>Supporter Dashboard</h1>
+
+            <p>
+                Help students continue their education by supporting their needs.
+            </p>
+
+        </div>
+
+
+        <h2 style="text-align:center; margin-bottom:30px;">
+            Students Looking for Educational Support
+        </h2>
+
+
+        {% if not requests %}
+
+            <div class="empty-box">
+
+                <h2>No Requests Available</h2>
+
+                <p>
+                    There are currently no pending education support requests.
+                </p>
+
+            </div>
+
+        {% else %}
+
+            {% for item in requests %}
+
+                <div class="request-card">
+
+                    <h3>
+                        Student: {{ item[1] }}
+                    </h3>
+
+                    <p>
+                        <b>Course:</b> {{ item[2] }}
+                    </p>
+
+                    <p>
+                        <b>College:</b> {{ item[3] }}
+                    </p>
+
+                    <p>
+                        <b>Required Amount:</b> ₹{{ item[4] }}
+                    </p>
+
+                    <p>
+                        <b>Reason:</b> {{ item[5] }}
+                    </p>
+
+                    <p>
+                        <b>Status:</b>
+
+                        <span class="status">
+                            {{ item[6] }}
+                        </span>
+                    </p>
+
+
+                    <form action="/support/{{ item[0] }}" method="POST">
+
+                        <button type="submit" class="support-btn">
+                            I Want to Support
+                        </button>
+
+                    </form>
+
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        <a href="/" class="back-btn">
+            ← Back to Home
+        </a>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <p>
+            © 2026 EduSupport | Education Should Reach Everyone
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

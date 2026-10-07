@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Support Successful - EduSupport</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        .success-section {
+            min-height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        .success-card {
+            background: white;
+            max-width: 600px;
+            width: 100%;
+            padding: 45px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.10);
+        }
+
+        .success-icon {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .success-card h1 {
+            color: #173b6c;
+            margin-bottom: 15px;
+        }
+
+        .success-card p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .dashboard-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 13px 25px;
+            background: #173b6c;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .dashboard-btn:hover {
+            background: #0f2c52;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            EduSupport
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/supporter">Dashboard</a>
+        </div>
+
+    </nav>
+
+
+    <section class="success-section">
+
+        <div class="success-card">
+
+            <div class="success-icon">
+                ✅
+            </div>
+
+            <h1>Thank You for Supporting!</h1>
+
+            <p>
+                Your support can help a student continue their education.
+            </p>
+
+            <p>
+                The support request has been successfully marked as
+                <b>Supported</b>.
+            </p>
+
+            <a href="/supporter" class="dashboard-btn">
+                Back to Supporter Dashboard
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <footer class="footer">
+
+        <p>
+            © 2026 EduSupport | Education Should Reach Everyone
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
